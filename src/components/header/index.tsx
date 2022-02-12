@@ -2,6 +2,8 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useGetThemesFromState } from "../../hooks/get-from-state";
 import { IThemeState, updateTheme } from "../../slices/theme-state.slice";
+import { SearchInput } from "../search-input";
+import { ModeToggle } from "../toggle";
 import { HeaderContainer } from "./header.style";
 
 /**
@@ -11,14 +13,14 @@ export const Header: FC = () => {
     const dispatch = useDispatch();
     const theme: IThemeState["theme"] = useGetThemesFromState();
 
-    const themeToggler = () => {
-        // Updates the theme in state
-        dispatch(updateTheme(theme === "light" ? "dark" : "light"));
-    };
     return (
         <HeaderContainer>
-            header
-            <button onClick={themeToggler}>Change theme</button>
+            <SearchInput
+                placeholder="Search Templates"
+                value=""
+                name="Search"
+            />
+            <ModeToggle />
         </HeaderContainer>
     );
 };

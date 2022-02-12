@@ -7,6 +7,10 @@ export const SearchResultsContainer = styled.section`
     margin: 0 auto;
 
     @media (max-width: ${breakpoints.mobile}px) {
+        width: 85%;
+    }
+
+    @media (max-width: 400px) {
         width: 90%;
     }
 `;
