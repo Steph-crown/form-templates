@@ -18,4 +18,5 @@ export interface ITheme {
     boxShadow: string;
     cardBackground: string;
     scrollBarColor: string;
+    selectBackground: string;
 }

@@ -20,6 +20,7 @@ export const lightTheme: ITheme = {
     boxShadow: "0px 4px 30px rgba(0, 0, 0, 0.08)",
     cardBackground: "#fff",
     scrollBarColor: "#252525",
+    selectBackground: "#e6e6e6",
 };
 
 /**
@@ -42,4 +43,5 @@ export const darkTheme: ITheme = {
     numberLabel: "#C9C9C9",
     boxShadow: "0px 4px 30px rgba(0, 0, 0, 0.08)",
     scrollBarColor: "#A9A9A9",
+    selectBackground: "#324242",
 };

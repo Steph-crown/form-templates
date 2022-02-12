@@ -13,4 +13,26 @@ export const SearchResultsContainer = styled.section`
     @media (max-width: 400px) {
         width: 90%;
     }
+
+    .info {
+        background: #fff4ea;
+        border-radius: 2px;
+        margin-top: 4em;
+        width: 100%;
+        padding: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+
+        color: #252525;
+
+        svg {
+            margin-right: 1.5em;
+        }
+    }
 `;

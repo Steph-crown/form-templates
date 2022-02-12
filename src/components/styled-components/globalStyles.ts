@@ -16,4 +16,14 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  ::-moz-selection { /* Code for Firefox */
+  color: ${({ body }: ITheme) => body};
+  background: ${({ text }: ITheme) => text};
+}
+
+::selection {
+  color: ${({ body }: ITheme) => body};
+  background: ${({ text }: ITheme) => text};
+}
 `;

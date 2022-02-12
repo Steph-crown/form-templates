@@ -5,7 +5,6 @@ import { ITheme } from "../styled-components/styles.interface";
 export const SearchInputContainer = styled.label`
     display: block;
     width: 20em;
-    margin: 1em 0;
     max-width: 100%;
     color: ${({ inputText }: ITheme) => inputText};
     position: relative;
@@ -29,14 +28,11 @@ export const SearchInputContainer = styled.label`
         font-size: 0.875em;
         line-height: 17.71px;
         background: transparent;
-        margin-top: 8px;
         font-weight: 400;
         color: ${({ inputText }: ITheme) => inputText};
         padding: 13px 32px;
         padding-right: 3em;
 
-        box-shadow: 0px 1px 2px rgba(50, 50, 71, 0.08),
-            0px 0px 1px rgba(50, 50, 71, 0.2);
         border-radius: 2px;
         outline: none;
         border: ${({ inputBorder }: ITheme) => `0.5px solid ${inputBorder}`};

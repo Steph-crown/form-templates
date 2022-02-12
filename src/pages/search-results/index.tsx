@@ -8,6 +8,7 @@ import {
     setFormTemplates,
 } from "../../slices/form-templates.slice";
 import { SearchResultsContainer } from "./search.style";
+import { ReactComponent as InfoIcon } from "./../../assets/icons/info.svg";
 
 export const SearchResults: FC = () => {
     const dispatch = useDispatch();
@@ -85,6 +86,11 @@ export const SearchResults: FC = () => {
             {/* {String(isOffline)} */}
 
             <Header />
+            <aside className="info">
+                <InfoIcon />
+                Tada! Get started with a free template. Can't find what you are
+                looking for? Search from the 1000+ available templates
+            </aside>
         </SearchResultsContainer>
     );
 };
