@@ -1,6 +1,5 @@
 import { RootState } from "./../store/index";
 import { createSlice } from "@reduxjs/toolkit";
-import { ITemplateData } from "./../services/services.interface";
 import { IState } from "./state.interface";
 
 const initialState: IState = {

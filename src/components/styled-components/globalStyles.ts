@@ -2,7 +2,7 @@
 import { createGlobalStyle } from "styled-components";
 import { ITheme } from "./styles.interface";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -17,5 +17,3 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `;
-
-export default GlobalStyle;

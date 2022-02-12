@@ -1,5 +1,7 @@
+import { IThemeState } from "./../slices/theme-state.slice";
 import { IState } from "./../slices/state.interface";
 import { formTemplatesSelector } from "./../slices/form-templates.slice";
+import { themeSelector } from "./../slices/theme-state.slice";
 import { useAppSelector } from "./typed-hooks";
 import { ITemplateData } from "../services/services.interface";
 
@@ -15,4 +17,12 @@ export const useGetTemplatesFromState = (): IState => {
         errorGettingTemplates: useAppSelector(formTemplatesSelector)
             .errorGettingTemplates,
     };
+};
+
+/**
+ * Hook that gets the current theme state from the redux store.
+ *  @returns {IThemeState["theme"]} the form templates ("light" | "dark")
+ */
+export const useGetThemesFromState = (): IThemeState["theme"] => {
+    return useAppSelector(themeSelector);
 };
