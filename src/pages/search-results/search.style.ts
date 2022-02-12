@@ -1,10 +1,12 @@
+import { breakpoints } from "./../../consts/breakpoints";
 import styled from "styled-components";
 
 export const SearchResultsContainer = styled.section`
-    width: 85%;
-    max-width: 1500px;
+    width: 83%;
+    max-width: 1200px;
     margin: 0 auto;
 
-    @media (max-width: 768px) {
+    @media (max-width: ${breakpoints.mobile}px) {
+        width: 90%;
     }
 `;
