@@ -30,4 +30,11 @@ export const TemplatesContainer = styled.section`
             line-height: 18px;
         }
     }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 1.5em;
+    }
 `;

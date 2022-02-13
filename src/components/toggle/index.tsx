@@ -14,6 +14,7 @@ export const ModeToggle: FC = () => {
     const themeToggler = () => {
         // Updates the theme in state
         dispatch(updateTheme(theme === "light" ? "dark" : "light"));
+        localStorage.setItem("theme", theme === "light" ? "dark" : "light");
     };
 
     return (

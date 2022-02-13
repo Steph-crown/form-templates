@@ -23,10 +23,12 @@ export const Templates: FC = () => {
                 <small>{lengthOfTemplates} templates</small>
             </aside>
             <main>
-                {/* The templates displayed */}
-                {displayedTemplates.map((template) => (
-                    <TemplateCard {...template} key={template.name} />
-                ))}
+                <ul>
+                    {/* The templates displayed */}
+                    {displayedTemplates.map((template) => (
+                        <TemplateCard {...template} key={template.name} />
+                    ))}
+                </ul>
             </main>
         </TemplatesContainer>
     );

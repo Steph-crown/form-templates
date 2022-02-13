@@ -9,7 +9,8 @@ export interface IThemeState {
 }
 
 const initialState: IThemeState = {
-    theme: "light",
+    // If theme is saved in local storage as dark, use it, else use light
+    theme: localStorage.getItem("theme") === "dark" ? "dark" : "light",
 };
 
 export const themeSlice = createSlice({

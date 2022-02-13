@@ -41,7 +41,8 @@ export const darkTheme: ITheme = {
     cardHeader: "#EBEBEB",
     cardFooterBackground: "#2E2E2E",
     numberLabel: "#C9C9C9",
-    boxShadow: "0px 4px 30px rgba(0, 0, 0, 0.08)",
+    boxShadow:
+        "6px 6px 15px rgba(0, 0, 0, 0.02), -6px -6px 15px rgba(0, 0, 0, 0.02)",
     scrollBarColor: "#A9A9A9",
     selectBackground: "#324242",
 };

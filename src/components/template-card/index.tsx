@@ -1,5 +1,8 @@
 import { FC } from "react";
+import { useGetThemesFromState } from "../../hooks/get-from-state";
 import { ITemplateData } from "../../services/services.interface";
+import { IThemeState } from "../../slices/theme-state.slice";
+import { darkTheme, lightTheme } from "../styled-components/themes";
 import { TemplateCardContainer } from "./template-card.style";
 
 /**
@@ -12,9 +15,18 @@ export const TemplateCard: FC<ITemplateData> = ({
     link,
     description,
 }) => {
+    // Gets current theme from state
+    const theme: IThemeState["theme"] = useGetThemesFromState();
+
     return (
-        <TemplateCardContainer>
-            <p>{name}</p>
+        <TemplateCardContainer
+            {...(theme === "light" ? lightTheme : darkTheme)}
+        >
+            <div>
+                <h2>{name}</h2>
+                <p>{description}</p>
+            </div>
+            <button>Use Template</button>
         </TemplateCardContainer>
     );
 };
