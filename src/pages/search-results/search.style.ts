@@ -25,14 +25,31 @@ export const SearchResultsContainer = styled.section`
         align-items: center;
 
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875em;
         line-height: 22px;
         text-align: center;
 
         color: #252525;
+        text-align: left;
 
         svg {
             margin-right: 1.5em;
+
+            min-height: 16px;
+            min-width: 16px;
+        }
+
+        @media (max-width: ${breakpoints.mobile}px) {
+            margin-top: 2em;
+        }
+        @media (max-width: 400px) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 1em;
+
+            svg {
+                margin-bottom: 1em;
+            }
         }
     }
 `;
