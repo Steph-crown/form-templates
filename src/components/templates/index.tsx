@@ -17,6 +17,7 @@ export const Templates: FC = () => {
 
     return (
         <TemplatesContainer {...(theme === "light" ? lightTheme : darkTheme)}>
+            {console.log(displayedTemplates)}
             <aside>
                 <p>{categoryFilter} Templates</p>
                 <small>{lengthOfTemplates} templates</small>
@@ -24,8 +25,11 @@ export const Templates: FC = () => {
             <main>
                 <ul>
                     {/* The templates displayed */}
-                    {displayedTemplates.map((template) => (
-                        <TemplateCard {...template} key={template.name} />
+                    {displayedTemplates.map((template, index) => (
+                        <TemplateCard
+                            {...template}
+                            key={template.name + index}
+                        />
                     ))}
                 </ul>
             </main>
