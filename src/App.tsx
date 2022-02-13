@@ -1,20 +1,25 @@
-import React from "react";
 import "./App.css";
-import { useGetFormTemplatesQuery } from "./services";
+import { ThemeProvider } from "styled-components";
+
+import { GlobalStyle } from "./components/styled-components/globalStyles";
+import { darkTheme, lightTheme } from "./components/styled-components/themes";
+import { Pages } from "./routes";
+import { IThemeState } from "./slices/theme-state.slice";
+import { useGetThemesFromState } from "./hooks/get-from-state";
 
 function App() {
-    const { data, error, isLoading } = useGetFormTemplatesQuery();
-
+    // Gets current theme from state
+    const theme: IThemeState["theme"] = useGetThemesFromState();
     return (
-        <section>
-            {error ? (
-                <>Oh no, there was an error</>
-            ) : isLoading ? (
-                <>Loading...</>
-            ) : data ? (
-                <>{data.length}</>
-            ) : null}
-        </section>
+        // Provider is used to pass the theme to all components
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <>
+                <GlobalStyle
+                    {...(theme === "light" ? lightTheme : darkTheme)}
+                />
+                <Pages />
+            </>
+        </ThemeProvider>
     );
 }
 
