@@ -5,11 +5,14 @@ import { darkTheme, lightTheme } from "../styled-components/themes";
 import { ISearchInput } from "./interface";
 import { SearchInputContainer } from "./style";
 import { ReactComponent as SearchIcon } from "./../../assets/icons/search.svg";
+import { ReactComponent as CloseIcon } from "./../../assets/icons/close.svg";
 
 export const SearchInput: FC<ISearchInput> = ({
     placeholder,
     name,
     handleChange,
+    value,
+    handleClear,
 }) => {
     // Gets current theme from state
     const theme: IThemeState["theme"] = useGetThemesFromState();
@@ -22,8 +25,13 @@ export const SearchInput: FC<ISearchInput> = ({
                 placeholder={placeholder}
                 onChange={handleChange}
                 id={name}
+                value={value}
             />
-            <SearchIcon />
+            {value === "" ? (
+                <SearchIcon />
+            ) : (
+                <CloseIcon onClick={handleClear} />
+            )}
         </SearchInputContainer>
     );
 };

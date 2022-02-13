@@ -9,6 +9,7 @@ import {
 } from "../../slices/form-templates.slice";
 import { SearchResultsContainer } from "./search.style";
 import { ReactComponent as InfoIcon } from "./../../assets/icons/info.svg";
+import { Templates } from "../../components/templates";
 
 export const SearchResults: FC = () => {
     const dispatch = useDispatch();
@@ -76,11 +77,11 @@ export const SearchResults: FC = () => {
             )} */}
 
             {/* Drops a message on the ui if the data has not been fetched after 14 seconds. For better user experience */}
-            {/* {!isOffline && !errorGettingTemplates && timeFromLoad > 14000 && (
+            {!isOffline && !errorGettingTemplates && timeFromLoad > 14000 && (
                 <p>
                     This is taking more than we anticipated. Hold on tight ...
                 </p>
-            )} */}
+            )}
 
             {/* Drops a message if user is offline */}
             {/* {String(isOffline)} */}
@@ -91,6 +92,7 @@ export const SearchResults: FC = () => {
                 Tada! Get started with a free template. Can't find what you are
                 looking for? Search from the 1000+ available templates
             </aside>
+            <Templates />
         </SearchResultsContainer>
     );
 };

@@ -1,9 +1,25 @@
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useGetThemesFromState } from "../../hooks/get-from-state";
+import {
+    CATEGORY_FILTERS,
+    DATE_FILTER,
+    ORDER_FILTER,
+} from "../../consts/filters";
+import {
+    useGetTemplatesFromState,
+    useGetThemesFromState,
+} from "../../hooks/get-from-state";
+import {
+    setCategoryFilter,
+    setDateFilter,
+    setOrderFilter,
+    setSearchValue,
+} from "../../slices/form-templates.slice";
+import { IState } from "../../slices/state.interface";
 import { IThemeState, updateTheme } from "../../slices/theme-state.slice";
 import { SearchInput } from "../search-input";
 import { Select } from "../select";
+import { ISelectOption } from "../select/interface";
 import { darkTheme, lightTheme } from "../styled-components/themes";
 import { ModeToggle } from "../toggle";
 import { HeaderContainer } from "./header.style";
@@ -15,16 +31,27 @@ export const Header: FC = () => {
     const dispatch = useDispatch();
     const theme: IThemeState["theme"] = useGetThemesFromState();
 
-    const [current, setCurrent] = useState<{ label: string; value: string }>({
-        label: "Adekunle",
-        value: "adekunle",
-    });
+    // Initial filters
+    const { categoryFilter, dateFilter, orderFilter, searchValue } =
+        useGetTemplatesFromState();
 
-    const options: { label: string; value: string }[] = [
-        { label: "Adekunle", value: "adekunle" },
-        { label: "Bolaji", value: "popi" },
-        { label: "Koloadde", value: "lool" },
-    ];
+    // maps the possible filter values into a format suitable for Select option
+    const categoryFilterOptions: ISelectOption[] = CATEGORY_FILTERS.map(
+        (filter) => ({
+            label: filter,
+            value: filter,
+        })
+    );
+
+    const dateFilterOptions: ISelectOption[] = DATE_FILTER.map((filter) => ({
+        label: filter,
+        value: filter,
+    }));
+
+    const orderFilterOptions: ISelectOption[] = ORDER_FILTER.map((filter) => ({
+        label: filter,
+        value: filter,
+    }));
 
     return (
         <HeaderContainer {...(theme === "light" ? lightTheme : darkTheme)}>
@@ -32,8 +59,15 @@ export const Header: FC = () => {
                 {" "}
                 <SearchInput
                     placeholder="Search Templates"
-                    value=""
+                    value={searchValue}
+                    handleChange={(ev) => {
+                        dispatch(setSearchValue(ev.target.value));
+                    }}
                     name="Search"
+                    // Clears the search value from state
+                    handleClear={(ev) => {
+                        dispatch(setSearchValue(""));
+                    }}
                 />
                 <ModeToggle />
             </section>
@@ -41,35 +75,53 @@ export const Header: FC = () => {
             <section className="filters">
                 <p>Sort By:</p>
                 <Select
-                    options={options}
+                    options={categoryFilterOptions}
                     placeholder="Category"
                     label="Category"
                     width="100%"
-                    selectedItem={current}
+                    selectedItem={{
+                        label: categoryFilter,
+                        value: categoryFilter,
+                    }}
                     handleChange={(item: { label: string; value: string }) => {
-                        setCurrent(item);
+                        // Sets the selected category filter to state
+                        dispatch(
+                            setCategoryFilter(
+                                item.value as IState["categoryFilter"]
+                            )
+                        );
                         return null;
                     }}
                 />{" "}
                 <Select
-                    options={options}
+                    options={orderFilterOptions}
                     placeholder="Order"
                     label="Order"
                     width="100%"
-                    selectedItem={current}
+                    selectedItem={{
+                        label: orderFilter,
+                        value: orderFilter,
+                    }}
                     handleChange={(item: { label: string; value: string }) => {
-                        setCurrent(item);
+                        dispatch(
+                            setOrderFilter(item.value as IState["orderFilter"])
+                        );
                         return null;
                     }}
                 />{" "}
                 <Select
-                    options={options}
+                    options={dateFilterOptions}
                     placeholder="Date"
                     label="Date"
                     width="100%"
-                    selectedItem={current}
+                    selectedItem={{
+                        label: dateFilter,
+                        value: dateFilter,
+                    }}
                     handleChange={(item: { label: string; value: string }) => {
-                        setCurrent(item);
+                        dispatch(
+                            setDateFilter(item.value as IState["dateFilter"])
+                        );
                         return null;
                     }}
                 />{" "}

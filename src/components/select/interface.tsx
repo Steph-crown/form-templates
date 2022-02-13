@@ -1,5 +1,5 @@
 export interface ISelectProps {
-    options: { label: string; value: string | number }[];
+    options: ISelectOption[];
     label: string;
     placeholder: string;
     disabled?: boolean;
@@ -7,4 +7,9 @@ export interface ISelectProps {
     handleChange: any;
     selectedItem: { label: string; value: string | number } | undefined;
     className?: string;
+}
+
+export interface ISelectOption {
+    label: string;
+    value: string;
 }

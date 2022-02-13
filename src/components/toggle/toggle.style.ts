@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const ModeToggleContainer = styled.button`
     background-color: ${({ toggleBackground }: ITheme) => toggleBackground};
     transition: 0.5s ease;
-    width: 50px;
-    height: 24px;
+    width: 40px;
+    height: 20px;
     border-radius: 32px;
     border: none;
     outline: none;
@@ -13,8 +13,8 @@ export const ModeToggleContainer = styled.button`
 
     &::after {
         content: "";
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         transition: 0.5s ease;
         left: ${({ toggleButtonX }: ITheme) => toggleButtonX};
         top: 50%;

@@ -11,11 +11,16 @@ import { ITemplateData } from "../services/services.interface";
  */
 export const useGetTemplatesFromState = (): IState => {
     return {
-        templates: useAppSelector(formTemplatesSelector).templates,
         lengthOfTemplates: useAppSelector(formTemplatesSelector)
             .lengthOfTemplates,
         errorGettingTemplates: useAppSelector(formTemplatesSelector)
             .errorGettingTemplates,
+        displayedTemplates: useAppSelector(formTemplatesSelector)
+            .displayedTemplates,
+        categoryFilter: useAppSelector(formTemplatesSelector).categoryFilter,
+        orderFilter: useAppSelector(formTemplatesSelector).orderFilter,
+        dateFilter: useAppSelector(formTemplatesSelector).dateFilter,
+        searchValue: useAppSelector(formTemplatesSelector).searchValue,
     };
 };
 
