@@ -11,7 +11,7 @@ export const lightTheme: ITheme = {
     cardHeader: "#333447",
     toggleBackground: "#E9E9E9",
     toggleButton: "#363537",
-    toggleButtonX: "0%",
+    toggleButtonX: "-10%",
     background: "#363537",
     inputPlaceholder: "#8F8B8B",
     inputText: "#6F6D6D",

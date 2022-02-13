@@ -25,4 +25,14 @@ export const ModeToggleContainer = styled.button`
         border-radius: 32px;
         cursor: pointer;
     }
+
+    /* @media (max-width: 600px) {
+        width: 32px;
+        height: 16px;
+
+        &::after {
+            width: 20px;
+            height: 20px;
+        }
+    } */
 `;

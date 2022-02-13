@@ -32,6 +32,14 @@ export const HeaderContainer = styled.header<{
 
         & > * {
             margin-left: 1.25em;
+
+            @media (max-width: 610px) {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 610px) {
+            width: 100%;
         }
 
         p {
@@ -47,19 +55,20 @@ export const HeaderContainer = styled.header<{
         display: none;
     }
 
-    @media (max-width: 1215px) {
+    /* @media (max-width: 1215px) {
         .filters {
             width: 100%;
             margin-top: 1em;
         }
-    }
+    } */
 
-    @media (max-width: ${breakpoints.tablet}px) {
+    @media (max-width: 1215px) {
         margin: 2em 0;
 
         .filters {
             display: ${(props) =>
                 props.showFilterForMobile ? "flex" : "none"};
+            margin-top: 1em;
 
             p {
                 display: none;
@@ -68,11 +77,12 @@ export const HeaderContainer = styled.header<{
             label:first-of-type {
                 margin-left: 0;
             }
+            flex-wrap: wrap;
         }
         .filter-icon {
             color: ${({ numberLabel }) => numberLabel};
             display: flex;
-            width: 100%;
+            width: 10%;
             justify-content: flex-end;
             margin-top: 1em;
 
@@ -83,6 +93,11 @@ export const HeaderContainer = styled.header<{
                     color: ${({ text }) => text};
                 }
             }
+        }
+    }
+    @media (max-width: ${breakpoints.mobile}px) {
+        .filter-icon {
+            width: 100%;
         }
     }
     @media (max-width: ${breakpoints.mobile}px) {

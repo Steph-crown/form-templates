@@ -6,6 +6,11 @@ export const SelectContainer = styled.label`
     width: 10em;
     position: relative;
 
+    @media (max-width: 610px) {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
     div.dd-wrapper,
     button.dd-header {
         display: block;
@@ -104,6 +109,7 @@ export const SelectContainer = styled.label`
         position: absolute;
         width: 100%;
         background: ${({ body }: ITheme) => `${body}`};
+        z-index: 828282;
     }
 
     button.dd-list-item {
