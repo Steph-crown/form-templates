@@ -23,6 +23,7 @@ export const SelectContainer = styled.label`
         background-color: ${({ body }: ITheme) => body};
         display: inline-block;
         padding: 0 8px;
+        z-index: 28;
     }
 
     button.dd-header {
@@ -93,6 +94,16 @@ export const SelectContainer = styled.label`
         ::-webkit-scrollbar-thumb:hover {
             background: transparent;
         }
+    }
+
+    div.dd-wrapper {
+        position: relative;
+    }
+
+    div.dd-list {
+        position: absolute;
+        width: 100%;
+        background: ${({ body }: ITheme) => `${body}`};
     }
 
     button.dd-list-item {

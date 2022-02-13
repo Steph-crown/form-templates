@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
  body {
     background: ${({ body }: ITheme) => body};
     color: ${({ text }: ITheme) => text};
-    transition: all 0.50s linear;
+    transition: all 0.20s linear;
     margin: 0;
     padding: 0;
   }

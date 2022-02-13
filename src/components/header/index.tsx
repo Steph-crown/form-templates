@@ -23,6 +23,7 @@ import { ISelectOption } from "../select/interface";
 import { darkTheme, lightTheme } from "../styled-components/themes";
 import { ModeToggle } from "../toggle";
 import { HeaderContainer } from "./header.style";
+import { ReactComponent as FilterIcon } from "./../../assets/icons/filter.svg";
 
 /**
  * The header component containing search and filter
@@ -53,8 +54,14 @@ export const Header: FC = () => {
         value: filter,
     }));
 
+    const [showFilterForMobile, setShowFilterForMobile] =
+        useState<boolean>(false);
+
     return (
-        <HeaderContainer {...(theme === "light" ? lightTheme : darkTheme)}>
+        <HeaderContainer
+            {...(theme === "light" ? lightTheme : darkTheme)}
+            showFilterForMobile={showFilterForMobile}
+        >
             <section className="search">
                 {" "}
                 <SearchInput
@@ -71,7 +78,13 @@ export const Header: FC = () => {
                 />
                 <ModeToggle />
             </section>
-
+            <div className="filter-icon">
+                <FilterIcon
+                    onClick={() => {
+                        setShowFilterForMobile((prev) => !prev);
+                    }}
+                />
+            </div>
             <section className="filters">
                 <p>Sort By:</p>
                 <Select

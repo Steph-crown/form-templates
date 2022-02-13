@@ -57,4 +57,27 @@ export const TemplateCardContainer = styled.li`
         border: none;
         cursor: pointer;
     }
+
+    @media (max-width: 900px) {
+        width: 20em;
+        margin-bottom: 2em;
+    }
+
+    @media (max-width: 750px) {
+        width: 17em;
+        margin-bottom: 2em;
+    }
+
+    @media (max-width: 650px) {
+        width: 100%;
+        margin-bottom: 3em;
+
+        h2 {
+            font-size: 1.3em;
+        }
+
+        p {
+            font-size: 0.875em;
+        }
+    }
 `;
