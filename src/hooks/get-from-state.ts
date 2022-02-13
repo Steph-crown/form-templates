@@ -3,7 +3,6 @@ import { IState } from "./../slices/state.interface";
 import { formTemplatesSelector } from "./../slices/form-templates.slice";
 import { themeSelector } from "./../slices/theme-state.slice";
 import { useAppSelector } from "./typed-hooks";
-import { ITemplateData } from "../services/services.interface";
 
 /**
  * Hook that gets the form templates from the redux store. Returns an array of form templates

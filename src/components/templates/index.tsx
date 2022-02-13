@@ -3,7 +3,6 @@ import {
     useGetTemplatesFromState,
     useGetThemesFromState,
 } from "../../hooks/get-from-state";
-import { ITemplateData } from "../../services/services.interface";
 import { IThemeState } from "../../slices/theme-state.slice";
 import { darkTheme, lightTheme } from "../styled-components/themes";
 import { TemplateCard } from "../template-card";

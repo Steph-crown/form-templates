@@ -201,7 +201,7 @@ const initialState: IState = {
             name: "mollit consequat. minim",
         },
     ],
-    lengthOfTemplates: 24,
+    lengthOfTemplates: 28,
     errorGettingTemplates: "",
     categoryFilter: "All",
     orderFilter: "Default",
@@ -434,6 +434,30 @@ export const formTemplatesSlice = createSlice({
             action: { payload: IState["categoryFilter"] }
         ) => {
             state.categoryFilter = action.payload;
+
+            // Resets all other filters and search value
+            state.dateFilter = "Default";
+            state.orderFilter = "Default";
+            state.searchValue = "";
+            console.log(state.templates?.length);
+
+            // sets the new displayed data as those of the selected category
+            if (state.templates) {
+                // all
+                if (action.payload === "All") {
+                    state.displayedTemplates = state?.templates;
+                    state.lengthOfTemplates = state.templates.length;
+                }
+                // not all
+                else {
+                    const newTemplates = state.templates?.filter((template) =>
+                        template.category.includes(action.payload)
+                    );
+
+                    state.displayedTemplates = newTemplates;
+                    state.lengthOfTemplates = newTemplates.length;
+                }
+            }
         },
 
         setDateFilter: (state, action: { payload: IState["dateFilter"] }) => {

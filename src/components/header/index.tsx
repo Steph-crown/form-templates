@@ -16,7 +16,7 @@ import {
     setSearchValue,
 } from "../../slices/form-templates.slice";
 import { IState } from "../../slices/state.interface";
-import { IThemeState, updateTheme } from "../../slices/theme-state.slice";
+import { IThemeState } from "../../slices/theme-state.slice";
 import { SearchInput } from "../search-input";
 import { Select } from "../select";
 import { ISelectOption } from "../select/interface";

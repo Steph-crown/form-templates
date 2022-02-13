@@ -6,10 +6,7 @@ export const TemplatesContainer = styled.section`
     margin: 4em 0;
 
     @media (max-width: ${breakpoints.mobile}px) {
-        margin: 2em 0;
-    }
-    @media (max-width: 400px) {
-        margin-top: 1em 0;
+        margin: 3em 0;
     }
 
     aside {
