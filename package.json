@@ -13,6 +13,7 @@
         "@types/react": "^16.14.23",
         "@types/react-dom": "^16.9.14",
         "@types/react-redux": "^7.1.22",
+        "@types/react-test-renderer": "^17.0.1",
         "@types/styled-components": "^5.1.22",
         "lodash.debounce": "^4.0.8",
         "react": "^17.0.2",
@@ -45,7 +46,6 @@
         ]
     },
     "devDependencies": {
-        "jest-dom": "^4.0.0",
         "react-test-renderer": "^17.0.2"
     }
 }
