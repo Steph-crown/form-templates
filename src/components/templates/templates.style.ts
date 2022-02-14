@@ -42,6 +42,8 @@ export const TemplatesContainer = styled.section`
             /* transform: scale(0.5); */
             width: 300px;
             height: 240px;
+            transition: 0.6s;
+
         }
 
         display: flex;
