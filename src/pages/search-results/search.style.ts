@@ -1,3 +1,4 @@
+import { ITheme } from "./../../components/styled-components/styles.interface";
 import { breakpoints } from "./../../consts/breakpoints";
 import styled from "styled-components";
 
@@ -12,6 +13,13 @@ export const SearchResultsContainer = styled.section`
 
     @media (max-width: 400px) {
         width: 90%;
+    }
+
+    .error-text {
+        color: ${({ inputPlaceholder }: ITheme) => inputPlaceholder};
+        width: 100%;
+        text-align: center;
+        margin-top: 2em;
     }
 
     .info {
