@@ -5,7 +5,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.7.2",
         "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.5.0",
+        "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^7.2.1",
         "@types/jest": "^24.9.1",
         "@types/lodash.debounce": "^4.0.6",
@@ -43,5 +43,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "jest-dom": "^4.0.0",
+        "react-test-renderer": "^17.0.2"
     }
 }
