@@ -1,4 +1,4 @@
-import { sortTemplatesByNameOrder } from "./../utils/sort";
+import { sortTemplatesByDate, sortTemplatesByNameOrder } from "./../utils/sort";
 import { RootState } from "./../store/index";
 import { createSlice } from "@reduxjs/toolkit";
 import { IState } from "./state.interface";
@@ -667,6 +667,18 @@ export const formTemplatesSlice = createSlice({
 
         setDateFilter: (state, action: { payload: IState["dateFilter"] }) => {
             state.dateFilter = action.payload;
+            state.dateFilter = "Default";
+
+            if (action.payload === "Default" && state.dataBeforeSort) {
+                // Go back to unsorted data
+                state.displayedTemplates = state.dataBeforeSort;
+            } else {
+                const sorted = sortTemplatesByDate(
+                    state.displayedTemplates,
+                    action.payload
+                );
+                state.displayedTemplates = sorted;
+            }
         },
 
         setOrderFilter: (state, action: { payload: IState["orderFilter"] }) => {
