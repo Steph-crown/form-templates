@@ -23,7 +23,7 @@ export const TemplateCard: FC<ITemplateData> = ({
             {...(theme === "light" ? lightTheme : darkTheme)}
         >
             <div>
-                <h2>{name}</h2>
+                <h2 data-testid="template-name">{name}</h2>
                 <p>{description}</p>
             </div>
             <button>Use Template</button>

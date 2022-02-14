@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+Array [
+  <li
+    className="sc-bdvvtL cWuhCu"
+  >
+    <div>
+      <h2
+        data-testid="template-name"
+      >
+        A template
+      </h2>
+      <p>
+        A template for education
+      </p>
+    </div>
+    <button>
+      Use Template
+    </button>
+  </li>,
+  " ",
+]
+`;

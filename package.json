@@ -5,7 +5,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.7.2",
         "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.5.0",
+        "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^7.2.1",
         "@types/jest": "^24.9.1",
         "@types/lodash.debounce": "^4.0.6",
@@ -13,6 +13,7 @@
         "@types/react": "^16.14.23",
         "@types/react-dom": "^16.9.14",
         "@types/react-redux": "^7.1.22",
+        "@types/react-test-renderer": "^17.0.1",
         "@types/styled-components": "^5.1.22",
         "lodash.debounce": "^4.0.8",
         "react": "^17.0.2",
@@ -43,5 +44,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "react-test-renderer": "^17.0.2"
     }
 }
