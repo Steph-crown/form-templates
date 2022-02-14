@@ -11,8 +11,9 @@ import { darkTheme, lightTheme } from "../styled-components/themes";
 import { TemplateCard } from "../template-card";
 import { TemplatesContainer } from "./templates.style";
 import { ReactComponent as EmptyBox } from "./../../assets/icons/empty-box.svg";
+export const dataPerPage = 15;
 
-export const Templates: FC = () => {
+export const Templates: FC<{ loading: boolean }> = ({ loading }) => {
     const { displayedTemplates, categoryFilter } = useGetTemplatesFromState();
 
     // Gets current theme from state
@@ -21,8 +22,6 @@ export const Templates: FC = () => {
     // const [data, setData] = useState<ITemplateData[]>([]);
     // const [loading, setLoading] = useState<boolean>(true);
     const [currentPage, setCurrentPage] = useState<number>(1);
-
-    let dataPerPage = 10;
 
     let shownData = getRangeOfData(
         displayedTemplates,
@@ -52,7 +51,9 @@ export const Templates: FC = () => {
                             />
                         ))}
                 </ul>
-                {displayedTemplates.length === 0 && (
+
+                {/* If not loading and no templates. I.e. the filter has no value */}
+                {displayedTemplates.length === 0 && !loading && (
                     <div className="empty">
                         <EmptyBox className="empty__icon" />
                         <h3>No templates</h3>

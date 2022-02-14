@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { PaginationContainer } from "./styles";
-import { DOTS, PaginationData, usePagination } from "../../hooks/usePagination";
+import { PaginationData, usePagination } from "../../hooks/usePagination";
 import { useGetThemesFromState } from "../../hooks/get-from-state";
 import { IThemeState } from "../../slices/theme-state.slice";
 import { darkTheme, lightTheme } from "../styled-components/themes";
@@ -55,31 +55,11 @@ export const Pagination: FC<IPagination> = ({
             </li>
             <div className="pagination__item-page-details">
                 <span className="current-page">{currentPage}</span>{" "}
-                <span className="">of {paginationRange!.length}</span>
+                <span className="">
+                    of {Math.ceil(totalNumberOfData / dataPerPage)}
+                </span>
             </div>
 
-            {/* {paginationRange!.map((pageNumber, i) => {
-                if (pageNumber === DOTS) {
-                    return (
-                        <li className="pagination__item" key={i}>
-                            <p className="pagination__item-dot">&#8230;</p>
-                        </li>
-                    );
-                }
-
-                return (
-                    <li className={`pagination__item`} key={i}>
-                        <button
-                            onClick={() => onPageChange(pageNumber as number)}
-                            className={`pagination__item-page ${
-                                pageNumber === currentPage ? "active" : ""
-                            }`}
-                        >
-                            {pageNumber}
-                        </button>
-                    </li>
-                );
-            })} */}
             <li className="pagination__item">
                 <button
                     onClick={onNext}

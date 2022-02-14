@@ -10,8 +10,6 @@ import { useAppSelector } from "./typed-hooks";
  */
 export const useGetTemplatesFromState = (): IState => {
     return {
-        lengthOfTemplates: useAppSelector(formTemplatesSelector)
-            .lengthOfTemplates,
         errorGettingTemplates: useAppSelector(formTemplatesSelector)
             .errorGettingTemplates,
         displayedTemplates: useAppSelector(formTemplatesSelector)

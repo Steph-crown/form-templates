@@ -39,6 +39,9 @@ export const TemplatesContainer = styled.section`
         .empty__icon {
             color: ${({ endOfListIllustration }: ITheme) =>
                 endOfListIllustration};
+            /* transform: scale(0.5); */
+            width: 300px;
+            height: 240px;
         }
 
         display: flex;
