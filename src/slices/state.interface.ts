@@ -5,6 +5,7 @@ export interface IState {
     lengthOfTemplates: number;
     errorGettingTemplates?: string;
     displayedTemplates: ITemplateData[];
+    dataBeforeSort?: ITemplateData[];
 
     // Current category displayed
     categoryFilter: "All" | "Education" | "E-commerce" | "Health";

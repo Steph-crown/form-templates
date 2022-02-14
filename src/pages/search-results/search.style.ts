@@ -45,7 +45,6 @@ export const SearchResultsContainer = styled.section`
         @media (max-width: 400px) {
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 1em;
 
             svg {
                 margin-bottom: 1em;

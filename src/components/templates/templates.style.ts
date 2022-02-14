@@ -6,10 +6,7 @@ export const TemplatesContainer = styled.section`
     margin: 4em 0;
 
     @media (max-width: ${breakpoints.mobile}px) {
-        margin: 2em 0;
-    }
-    @media (max-width: 400px) {
-        margin-top: 1em 0;
+        margin: 3em 0;
     }
 
     aside {
@@ -36,5 +33,26 @@ export const TemplatesContainer = styled.section`
         flex-wrap: wrap;
         justify-content: space-between;
         margin-top: 1.5em;
+    }
+
+    .empty {
+        .empty__icon {
+            color: ${({ endOfListIllustration }: ITheme) =>
+                endOfListIllustration};
+        }
+
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-weight: 400;
+            font-size: 1.5em;
+            color: ${({ cardHeader }: ITheme) => cardHeader};
+        }
+        p {
+            color: ${({ inputPlaceholder }: ITheme) => inputPlaceholder};
+        }
     }
 `;

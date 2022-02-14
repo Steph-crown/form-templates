@@ -21,6 +21,7 @@ export const lightTheme: ITheme = {
     cardBackground: "#fff",
     scrollBarColor: "#252525",
     selectBackground: "#e6e6e6",
+    endOfListIllustration: "#FFFAF5",
 };
 
 /**
@@ -45,4 +46,5 @@ export const darkTheme: ITheme = {
         "6px 6px 15px rgba(0, 0, 0, 0.02), -6px -6px 15px rgba(0, 0, 0, 0.02)",
     scrollBarColor: "#A9A9A9",
     selectBackground: "#324242",
+    endOfListIllustration: "#323232",
 };
