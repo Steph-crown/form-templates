@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
     CATEGORY_FILTERS,
@@ -13,6 +13,7 @@ import {
     setCategoryFilter,
     setDateFilter,
     setOrderFilter,
+    setSearchText,
     setSearchValue,
 } from "../../slices/form-templates.slice";
 import { IState } from "../../slices/state.interface";
@@ -24,6 +25,7 @@ import { darkTheme, lightTheme } from "../styled-components/themes";
 import { ModeToggle } from "../toggle";
 import { HeaderContainer } from "./header.style";
 import { ReactComponent as FilterIcon } from "./../../assets/icons/filter.svg";
+import debounce from "lodash.debounce";
 
 /**
  * The header component containing search and filter
@@ -57,6 +59,14 @@ export const Header: FC = () => {
     const [showFilterForMobile, setShowFilterForMobile] =
         useState<boolean>(false);
 
+    const changeHandler = (ev: React.ChangeEvent<any>) => {
+        dispatch(setSearchValue(ev.target.value));
+    };
+    const debouncedChangeHandler = useMemo(
+        () => debounce(changeHandler, 300),
+        []
+    );
+
     return (
         <HeaderContainer
             {...(theme === "light" ? lightTheme : darkTheme)}
@@ -67,14 +77,14 @@ export const Header: FC = () => {
                 <SearchInput
                     placeholder="Search Templates"
                     value={searchValue}
-                    handleChange={(ev) => {
-                        dispatch(setSearchValue(ev.target.value));
-                    }}
+                    handleChange={debouncedChangeHandler}
                     name="Search"
                     // Clears the search value from state
                     handleClear={(ev) => {
                         dispatch(setSearchValue(""));
+                        dispatch(setSearchText(""));
                     }}
+                    valueFromState={searchValue}
                 />
                 <ModeToggle />
             </section>

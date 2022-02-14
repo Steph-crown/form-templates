@@ -19,4 +19,5 @@ export interface ITheme {
     cardBackground: string;
     scrollBarColor: string;
     selectBackground: string;
+    endOfListIllustration: string;
 }

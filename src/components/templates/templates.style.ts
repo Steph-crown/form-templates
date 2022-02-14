@@ -34,4 +34,25 @@ export const TemplatesContainer = styled.section`
         justify-content: space-between;
         margin-top: 1.5em;
     }
+
+    .empty {
+        .empty__icon {
+            color: ${({ endOfListIllustration }: ITheme) =>
+                endOfListIllustration};
+        }
+
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-weight: 400;
+            font-size: 1.5em;
+            color: ${({ cardHeader }: ITheme) => cardHeader};
+        }
+        p {
+            color: ${({ inputPlaceholder }: ITheme) => inputPlaceholder};
+        }
+    }
 `;

@@ -2,6 +2,7 @@ import { sortTemplatesByDate, sortTemplatesByNameOrder } from "./../utils/sort";
 import { RootState } from "./../store/index";
 import { createSlice } from "@reduxjs/toolkit";
 import { IState } from "./state.interface";
+import { filterTemplatesBySearch } from "../utils/filter";
 
 const initialState: IState = {
     templates: [
@@ -667,7 +668,7 @@ export const formTemplatesSlice = createSlice({
 
         setDateFilter: (state, action: { payload: IState["dateFilter"] }) => {
             state.dateFilter = action.payload;
-            state.dateFilter = "Default";
+            state.orderFilter = "Default";
 
             if (action.payload === "Default" && state.dataBeforeSort) {
                 // Go back to unsorted data
@@ -697,8 +698,21 @@ export const formTemplatesSlice = createSlice({
             }
         },
 
-        setSearchValue: (state, action: { payload: IState["searchValue"] }) => {
+        setSearchText: (state, action: { payload: IState["searchValue"] }) => {
             state.searchValue = action.payload;
+        },
+
+        setSearchValue: (state, action: { payload: IState["searchValue"] }) => {
+            if (state.dataBeforeSort) {
+                if (action.payload === "") {
+                    state.displayedTemplates = state.dataBeforeSort;
+                } else {
+                    state.displayedTemplates = filterTemplatesBySearch(
+                        state.dataBeforeSort,
+                        action.payload
+                    );
+                }
+            }
         },
     },
 });
@@ -710,6 +724,7 @@ export const {
     setOrderFilter,
     setDateFilter,
     setSearchValue,
+    setSearchText,
 } = formTemplatesSlice.actions;
 export const formTemplatesSelector = (state: RootState) => state.formTemplates;
 
